@@ -44,6 +44,7 @@ class AddTaskUseCaseTest < MiniTest::Unit::TestCase
     add_task = AddTaskUseCase.new task_repository
     add_task.add(OneTimeTask.new 'Task 01', Date.new(2017, 01, 01))
     tasks = ListTasksUseCase.new(task_repository).list
-    assert_equal 1, tasks.count
+    assert_equal [OneTimeTask.new('Task 01', Date.new(2017, 01, 01))],
+                 tasks
   end
 end

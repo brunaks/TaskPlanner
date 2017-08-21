@@ -12,4 +12,17 @@ class OneTimeTask
     {name: @name, deadline: @deadline, overdue: overdue?}.to_json
   end
 
+  def == other
+    self.class == other.class &&
+        self.name == other.name &&
+        self.deadline == other.deadline
+  end
+
+  def name
+    @name
+  end
+
+  def deadline
+    @deadline
+  end
 end
